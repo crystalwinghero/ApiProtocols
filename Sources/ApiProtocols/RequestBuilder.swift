@@ -11,12 +11,12 @@ public struct RequestBuilder<T: APIRequestable, U : APIDataRepresentable> {
     var api : T
     var params : U?
     
-    init(_ api : T, params : U?) {
+    public init(_ api : T, params : U?) {
         self.api = api
         self.params = params
     }
     
-    func build() -> URLRequest {
+    public func build() -> URLRequest {
         let url = api.url
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = api.headers
